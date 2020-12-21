@@ -1,0 +1,7 @@
+Télécharger le zip de bootstrap (css et js uniquement), copier le dossier Bootstrap et de le coller dans le dossier css de votre projet.
+
+Ensuite il suffit d'inclure dans le <head> de votre fichier html le link
+
+<link type="text/css" rel="stylesheet" href="#nom du dossier css#/bootstrap/css/bootstrap.css"/>
+
+Attention si vous créez un fichier css perso pour votre site de bien l'appeler avec le link correspondant après celui de bootstrap pour qu'il puisse être majoritaire sur celui de bootstrap.
