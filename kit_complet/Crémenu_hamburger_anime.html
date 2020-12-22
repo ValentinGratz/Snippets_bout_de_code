@@ -1,0 +1,60 @@
+<div class=”container”>
+	<div class=”ham” id=”ham”>
+		<span class=”ham-icon”></span>
+	</div>
+</div>
+
+<style>
+  . ham {
+	height: løøpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer;
+	cursor;
+}
+
+. ham-icon ,
+. ham-icon :: before ,
+. ham-icon :: after {
+	width: 80 px;
+	height: l0px;
+	border—radius: 30px;
+	background-color: black;
+	width: 80px;
+	height: I0px;
+	border-radius: 30px;
+	background-color: black;
+}
+
+. ham-icon {
+	position: relative;
+	display: block;
+	transition: all 500ms cubic-bezier(0,1.88,1.22);
+}
+
+. ham-icon :: before ,
+. ham-icon :: after {
+	content: "";
+	position: absolute;
+	transition: all 500ms cubic-bezier(0,1.88,1.22);
+}
+
+. ham-icon :: before {
+	transform: translateY(-25px);
+}
+
+. ham-icon :: after {
+	transform: translateY(25px);
+}
+
+.ham.active .ham-icon {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+ }
+ 
+ .ham.active .ham-icon::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+    }
+</style>
