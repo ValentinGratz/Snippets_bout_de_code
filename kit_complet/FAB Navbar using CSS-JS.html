@@ -1,0 +1,78 @@
+<div class=”nav-position”>          <!--HTML-->
+		<ul class=”nav” id=”nav”>
+			<li class=”nav-item”>Home</li>
+			…
+		</ul>
+		<button class=”btn” id=”toggler”>
+			+
+		</button>
+</div>
+
+<style>                         <!--CSS-->
+  .nav-position{
+    position: fixed;
+    right: 50px;
+    bottom: 50px
+  }
+  .nav{
+    margin-left: -50px;
+    padding : 1rem;
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #2e2e2e;
+    transition: all 0.1s ease-in;
+  }
+  .nav-item{
+    list-style-type: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+  }
+  .nav-item:hover{
+    background-color: cornflowerblue;
+    color: #ffffff;
+  }
+  .btn{
+    position: relative;
+    margin-top: 20px;
+    width: 4rem;
+    height: 35pt;
+    font-size: 35pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: cornflowerblue;
+    color: #ffffff;
+    box-shadow: 0px 0px 10px #303030;
+    transition: all 0.1s ease;
+    transform: relate(45deg);
+  }
+  .hide{
+    visibility: hidden;
+    transform: translateY(50px);
+  }
+  .active{
+    transform: rotate(0deg);
+  }
+  .highlighted{
+    background-color: #2e2e2e;
+    padding: 2rem;
+    font-size: 30pt;
+    color: #ffffff;
+  }
+</style>
+
+<script>                                                <!--JS-->
+  const toggle = document.querySelector(‘#toggler’);
+		const nav = document.querySelector(‘#nav’);
+
+		toggler.addEventListener(‘click’, () => {
+			nav.classList.toggle(‘hide’);
+			toggler.classList.toggle(‘active’);
+		})
+</script>
+
+<!-- tutoriel trouvé sur un compte instagram de snippet-->
