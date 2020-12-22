@@ -1,0 +1,26 @@
+<img class="wishlist" id="wishlist" src="lien de l’image" onclick="change(this)">
+
+<style>
+.wishlist{
+  width:30px;
+  height:30px ;
+  position: absolute;
+  top:26%;
+}
+
+</style>
+
+<script>
+function change()
+{
+ a = document.getElementById("wishlist").getAttribute("src"); //1er getelement : mettre premiere image, getattribute: mettre "src"
+ if (a=='icon_wishlist/coeurvert.png') { //si variable est (==) et indiqué fichier image à remplacer
+              document.getElementById("wishlist").src='icon_wishlist/coeurorange.png'; //indiqué id de l'img.src="nom de l'image qui remplace"
+          }
+
+          else { // sinon
+         document.getElementById("wishlist").src='icon_wishlist/coeurvert.png'; // indiqué id de l'img.src de l'image d'origine
+          }
+
+}
+</script>
