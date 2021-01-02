@@ -16,6 +16,21 @@ Liste de banques d'images :
 13.	https://www.blackillustrations.com/
 14.	https://shape.so/
 15.	https://blush.design/
+16. https://100dailyui.webflow.io/
+17. https://www.invisionapp.com/inside-design/design-resources/
+18. https://www.uplabs.com/
+19. https://www.sketchappsources.com/
+20. https://products.ls.graphics/paaatterns/
+21. http://drawkit.io/
+22. http://manypixels.co/
+23. https://avataaars.com/
+24. https://freellustrations.com/
+25. http://freebiesketch.com/
+26. https://iradesign.io/
+27. https://uidesigndaily.com/
+28. https://uispace.net/
+29. https://www.opendoodles.com/
+
 
 # Banques d’images/logo marques réseaux sociaux
 Faire une demande d’utilisation ou se servir directement sur le site : https://fr.facebookbrand.com (pour les logos de Facebook, Instagram, Messenger, WhatsApp)
