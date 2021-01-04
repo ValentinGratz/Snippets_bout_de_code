@@ -39,3 +39,5 @@ Faire une demande d’utilisation ou se servir directement sur le site : https:/
 Liste des sites proposants des bouts de codes et/ou snippets en tout genre. 
 1.	https://bootsnipp.com 
 2.  https://devhints.io
+3. https://www.php.net
+4. https://devdocs.io/jquery/
