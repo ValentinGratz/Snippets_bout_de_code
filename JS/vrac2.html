@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+</head>
+<body>
+<div class="container pt-5">
+
+    <p class="display-4">Il fait : <span id="temp"></span>°C
+        <br>
+        Le temps est : <span id="weather"></span>
+    </p>
+
+
+
+    <span id="counter"></span>
+    <br><br>
+    <button class="btn btn-success" id="click">Clic sur moi !</button>
+
+    <div id="div1" class="card col-12 mt-5 bg-success p-5" style="min-height: 250px">
+        <button class="btn btn-warning" id="toggle1">Afficher la div suivante</button>
+        <button class="btn btn-warning toggle">Toggle</button>
+    </div>
+    <div id="div2" class="card col-12 mt-5 bg-warning p-5" style="min-height: 250px; display: none">
+        <button id="toggle2" class="btn btn-success">Afficher la div précédente</button>
+        <button class="btn btn-success toggle">Toggle</button>
+    </div>
+
+    <div class="card my-5">
+        <div class="card-body">
+            <span id="product">
+                <i class="far fa-heart"></i> Mon produit
+            </span>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <button class="btn " style="color: green;" id="cssDemo">coucou</button>
+    </div>
+
+    <div class="progress mb-5">
+        <div class="progress-bar bg-success" id="progress" role="progressbar"
+             style="width: 0%" aria-valuenow="0"
+             aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+
+
+    <table class="table" id="table">
+        <thead class="thead-dark">
+        <th>
+            Col1
+        </th>
+        <th>
+            Col2
+        </th>
+        <th>Col3</th>
+        </thead>
+        <tbody id="tbody" class="table-striped">
+        <tr id="trTest" data-id="1">
+            <td>#1</td>
+            <td>Val1</td>
+            <td>
+                <button class="btn btn-primary" onclick="info('button1')" id="button1">Id ?</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <input type="text" id="inputText"><br><br>
+    <button class="btn btn-primary" id="addAfter">Ajouter a la fin</button>
+    <button class="btn btn-danger" id="addBefore">Ajouter au début</button>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script>
+    function info(idElement) {
+        let btn = $("#" + idElement)
+        let btnParent = btn.parent();
+        let btnGrandParent = btnParent.parent();
+        let dataId = btnGrandParent.attr("data-id")
+        console.log(dataId);
+    }
+
+    let zip = "62300"
+    let apiUrl = "http://api.openweathermap.org/data/2.5/weather?zip="+zip+",fr&appid=096a8cc64fcbfc5831847a29428d0623&lang=fr&units=metric"
+
+    var count = 0
+    var percent = 0
+    $(document).ready(function () {
+
+        $.get(apiUrl, function (data) {
+            //console.log(data.main.temp)
+            $('#temp').text(data.main.temp)
+            $('#weather').text(data.weather[0].description)
+        })
+
+        console.log($('#trTest').parent())
+
+        //console.log($('#tbody').children().length)
+        //localStorage.setItem('clé', 'valeur') // Ajoute un élément dans le localstorage
+        //console.log(localStorage.getItem('clé')) // Récupère un élément depuis le localstorage
+        //localStorage.removeItem('clé') // Supprime un élément depsuis le localstorage
+        //localStorage.clear() // Supprime tous les éléments du localstorage
+        //sessionStorage
+        //JSON.parse() // String to JSON
+        //JSON.stringify() // JSON to Stirng
+
+        $(document).click(function () {
+            percent += 10
+            if (percent >= 110) {
+                percent = 0
+            }
+            let bar = $('#progress')
+            bar.css('width', '' + percent + '%')
+
+        })
+
+        $('#addAfter').click(function () {
+            let inputValue = $('#inputText').val()
+            let count = $('#tbody').children().length + 1;
+            let strsupp = `<td>
+                <button class="btn btn-primary" onclick="info('button` + count + `')" id="button` + count + `">Id ?</button>
+            </td>`
+            let stringToAdd = "<tr data-id='" + count + "'><td>#" + count + "</td><td>" + inputValue + "</td>" + strsupp + "</tr>"
+            $('#tbody').append(stringToAdd)
+            $('#inputText').val('')
+        })
+
+        $('#addBefore').click(function () {
+            let inputValue = $('#inputText').val()
+            let count = $('#tbody').children().length + 1;
+            let strsupp = `<td>
+                <button class="btn btn-primary" onclick="info('button` + count + `')" id="button` + count + `">Id ?</button>
+            </td>`
+            let stringToAdd = "<tr data-id='" + count + "'><td># " + count + "</td><td>" + inputValue + "</td>" + strsupp + "</tr>"
+            $('#tbody').prepend(stringToAdd)
+            $('#inputText').val('')
+        })
+
+        //le code a effectuer quand le document est chargé
+        $('#counter').text(count)
+        //Action a effectuer lorsque l'utilisateur click sur le
+        // bouton qui a comme id click
+        $('#click').click(function () {
+            count += 1
+            $('#counter').text(count)
+        })
+
+        $('#toggle1').click(function () {
+            //$('#div1').fadeOut(450)
+            //$('#div2').fadeIn(1000)//1000 = temp d'execution du fadeOut + FadeIN
+            $('#div1').hide()
+            $('#div2').show()
+        })
+
+        $('#toggle2').click(function () {
+            //$('#div2').fadeOut(450)
+            //$('#div1').fadeIn(1000)
+            $('#div2').hide()
+            $('#div1').show()
+        })
+
+        //Jquery recherche tous les élément avec la class toggle
+        //Pour chacun d'eux on execute la fonction suivante
+        $('.toggle').each(function () {
+            //$(this) représente l'élément actuel
+            //(donc le .toggle qui est actuellement lu par jquery)
+            //la lecture se fait dans l'ordre du document (de haut en bas)
+            //donc :
+            //Pour cet élément on va écouter l'action click et effectuer la fonction
+            $(this).click(function () {
+                //on va faire un toggle sur nos 2 divs
+                //le toggle correspond a une condition :
+                // Si l'élément est visible on le masque
+                // si l'élément est invisible on l'affiche
+                $('#div1').toggle()
+                $('#div2').toggle()
+            })
+        })
+
+
+        $('#product').click(function () {
+            //let icon = $('#likeProduct')
+            let icon = $('#product').children('i')
+
+            if (icon.hasClass('fas')) {
+                icon.removeClass('fas')
+                icon.removeClass('text-danger')
+                icon.addClass('far')
+                //requete ajax retirer des favoris
+            } else {
+                icon.addClass('fas')
+                icon.addClass('text-danger')
+                icon.removeClass('far')
+                //requete ajax ajouter aux favoris
+            }
+        })
+
+        console.log($('#cssDemo').css('color'))
+        $('#cssDemo').css('color', 'rgb(250, 0, 0)')
+
+
+    })
+
+
+</script>
+
+</body>
+</html>
