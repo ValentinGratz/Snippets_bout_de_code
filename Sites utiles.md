@@ -38,3 +38,4 @@ Faire une demande d’utilisation ou se servir directement sur le site : https:/
 # Site de codes/snippets
 Liste des sites proposants des bouts de codes et/ou snippets en tout genre. 
 1.	https://bootsnipp.com 
+2.  https://devhints.io
