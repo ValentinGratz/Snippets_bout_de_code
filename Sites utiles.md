@@ -41,3 +41,6 @@ Liste des sites proposants des bouts de codes et/ou snippets en tout genre.
 2.  https://devhints.io
 3. https://www.php.net
 4. https://devdocs.io/jquery/
+
+# Sites de maquettage
+1. https://app.diagrams.net
