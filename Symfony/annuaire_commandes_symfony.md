@@ -75,3 +75,8 @@ Yes
 « php bin/console make:registration-form »
 Y / Y / adresse email / name for email / Y
 ```
+
+Si on a supprimé le dossier "vendor", faire cette commande pour en regénérer un vide : 
+```
+composer update
+```
