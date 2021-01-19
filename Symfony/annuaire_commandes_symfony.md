@@ -80,3 +80,8 @@ Si on a supprimé le dossier "vendor", faire cette commande pour en regénérer 
 ```
 composer update
 ```
+
+Créer un formulairte d'ajout/sduppression/modification
+```
+php bin/console make:crud
+```
