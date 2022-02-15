@@ -44,3 +44,6 @@ Liste des sites proposants des bouts de codes et/ou snippets en tout genre.
 
 # Sites de maquettage
 1. https://app.diagrams.net
+
+# Divers
+1. Convertisseur d'image en HTML : https://html.imageonline.co/fr/ 
